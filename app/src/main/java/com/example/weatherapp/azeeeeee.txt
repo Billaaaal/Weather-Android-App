@@ -1,0 +1,177 @@
+import { StatusBar } from 'expo-status-bar';
+import React from 'react';
+import { StyleSheet, Text, View, TextInput, ScrollView } from 'react-native';
+import { backgroundColor } from 'react-native/Libraries/Components/View/ReactNativeStyleAttributes';
+
+
+//create a react nat
+
+var request = new XMLHttpRequest();
+request.onreadystatechange = (e) => {
+  if (request.readyState !== 4) {
+    return;
+  }
+
+  if (request.status === 200) {
+    //console.log('success', request.responseText);
+  } else {
+    //console.warn('error');
+  }
+};
+
+
+const task = [
+  {
+    task: "Morning Walk",
+    icon: "hiking",
+    theme: "#008b8b",
+    stamp: "Today . 8am"
+  },
+  {
+    task: "Meet with HR",
+    icon: "account-tie",
+    theme: "#37003c",
+    stamp: "Today . 12 noon"
+  },
+  {
+    task: "Shopping with familly",
+    icon: "cart",
+    theme: "#fed132",
+    stamp: "Tomorrow . 3"
+  },
+  {
+    task: "Time for Gym",
+    icon: "weight",
+    theme: "#008b8b",
+    stamp: "Saturday . 4pm"
+  },
+  {
+    task: "Morning Walk",
+    icon: "hiking",
+    theme: "#008b8b",
+    stamp: "Today . 8am"
+  },
+  {
+    task: "Meet with HR",
+    icon: "account-tie",
+    theme: "#37003c",
+    stamp: "Today . 12 noon"
+  },
+  {
+    task: "Shopping with familly",
+    icon: "cart",
+    theme: "#fed132",
+    stamp: "Tomorrow . 3"
+  },
+  {
+    task: "Time for Gym",
+    icon: "weight",
+    theme: "#008b8b",
+    stamp: "Saturday . 4pm"
+  },
+  {
+    task: "Morning Walk",
+    icon: "hiking",
+    theme: "#008b8b",
+    stamp: "Today . 8am"
+  },
+  {
+    task: "Meet with HR",
+    icon: "account-tie",
+    theme: "#37003c",
+    stamp: "Today . 12 noon"
+  },
+  {
+    task: "Shopping with familly",
+    icon: "cart",
+    theme: "#fed132",
+    stamp: "Tomorrow . 3"
+  },
+  {
+    task: "Time for Gym",
+    icon: "weight",
+    theme: "#008b8b",
+    stamp: "Saturday . 4pm"
+}];
+
+
+request.open('GET', 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur&order=market_cap_desc&per_page=1&page=1&sparkline=true');
+request.send();
+
+export default function App() {
+  const [input, setInput] = React.useState("");
+  return (
+    <View style={styles.container}>
+
+      <TextInput style={styles.input}
+        placeholder="Enter a decimal number"
+        keyboardType='numeric'
+        onChangeText={(text) => setInput(Number(text).toString(2))}/>
+      <Text style={styles.text}>{input}</Text>
+      
+      
+      <ScrollView style={styles.scroll}>
+
+      {task.map(task => (
+          <View style={{height:40,backgroundColor:task.theme,borderColor:"#ffffff",borderWidth:0.5}}>
+            <Text style={styles.textApi}>{task.task}</Text>
+          </View>
+        ))}
+
+      <Text style={styles.textApi}>{request.responseText}</Text>
+
+      </ScrollView>
+
+      
+      
+    </View>
+  );
+}
+
+
+
+
+const styles = StyleSheet.create({
+  box:{
+    height:40,
+    backgroundColor:"#008b8b",
+    borderColor:"#ffffff",
+    borderWidth:0.5,
+    
+
+  },
+  scroll:{
+    marginTop:400,
+    backgroundColor:'#f05680',
+
+  },
+  container: {
+    flex:1,
+    backgroundColor: '#fff',
+  },
+  input: {
+    fontSize:30,
+    top:300,
+    textAlign:'center',
+  },
+  text: {
+    fontSize:30,
+    top:100,
+    textAlign:'center',
+  },
+  textApi: {
+    fontSize:30,
+    color:'#ffffff',
+    textAlign:'center',
+  },
+  welcome: {
+    flex: 1,
+    margin: 20,
+    backgroundColor: 'orange',
+    margin: 10,
+    textAlign: 'center',
+    fontSize: 20,
+    paddingTop: 70,
+  },
+
+});

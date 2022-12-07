@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="date">
+
+        <item name="android:textSize">
+            12.86sp
+        </item>
+
+        <item name="android:textColor">
+            #FFFFFF
+        </item>
+
+        <item name="android:shadowColor">
+            #1A000000
+        </item>
+
+        <item name="android:shadowDx">
+            -1.43
+        </item>
+
+        <item name="android:shadowDy">
+            2.14
+        </item>
+
+        <item name="android:shadowRadius">
+            0.71
+        </item>
+
+    </style>
+
+    <style name="temperature">
+
+        <item name="android:textSize">
+            71.43sp
+        </item>
+
+        <item name="android:textColor">
+            #FFFFFF
+        </item>
+
+        <item name="android:shadowColor">
+            #1A000000
+        </item>
+
+        <item name="android:shadowDx">
+            -2.86
+        </item>
+
+        <item name="android:shadowDy">
+            5.71
+        </item>
+
+        <item name="android:shadowRadius">
+            35.71
+        </item>
+
+    </style>
+
+    <style name="info_style">
+
+        <item name="android:textSize">
+            12.86sp
+        </item>
+
+        <item name="android:textColor">
+            #FFFFFF
+        </item>
+
+        <item name="android:shadowColor">
+            #1A000000
+        </item>
+
+        <item name="android:shadowDx">
+            -1.43
+        </item>
+
+        <item name="android:shadowDy">
+            2.14
+        </item>
+
+        <item name="android:shadowRadius">
+            0.71
+        </item>
+
+    </style>
+
+</resources>

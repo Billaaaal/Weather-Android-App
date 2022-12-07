@@ -1,0 +1,109 @@
+package com.example.weatherapp
+
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
+import android.provider.Settings
+import android.util.Log
+import android.widget.TextView
+import com.google.gson.GsonBuilder
+import com.google.gson.JsonParser
+import kotlinx.coroutines.*
+import retrofit2.Retrofit
+import retrofit2.awaitResponse
+import retrofit2.converter.gson.GsonConverterFactory
+
+class MainActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        var test = ""
+       var textview = findViewById<TextView>(R.id.textview)
+
+        fun getMethod(): String {
+
+            var urlMain = "https://cat-fact.herokuapp.com/"
+
+
+            // Create Retrofit
+            val retrofit = Retrofit.Builder()
+                .baseUrl(urlMain)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build()
+                .create(APIService::class.java)
+
+            val he = GlobalScope.launch(Dispatchers.IO) {
+                var response = retrofit.getEmployees().awaitResponse()
+                if (response.isSuccessful){
+                    var data = response.body()
+                    //Log.i("DATASELF", data?.text.toString())
+                    test = data?.text.toString()
+
+
+
+
+
+                    //var data = response.body(
+
+                } else {
+
+
+
+
+
+                }
+                he.
+            }
+
+
+
+            // Create Service
+
+
+
+
+
+
+
+
+
+            /* Log.i("APICALL", toreturn) */
+
+
+
+
+            return "OK"
+
+        }
+
+        getMethod()
+
+
+
+
+
+        //Log.i("HUM", data?.text)
+
+
+
+
+
+        val handler = Handler(Looper.getMainLooper())
+        handler.postDelayed({
+            Log.i("DATASELF", test)
+            // do something after 1000ms
+        }, 1000)
+
+
+
+
+
+    }
+
+
+
+}
+
+

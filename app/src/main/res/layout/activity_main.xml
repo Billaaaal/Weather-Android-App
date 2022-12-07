@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="@drawable/ic_bg">
+
+
+    <TextView
+        android:id="@+id/CityNameContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:fontFamily="sans-serif"
+        android:text="London"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:textStyle="normal"
+        android:textAppearance="@style/date"
+        android:textFontWeight="650"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ImageStatus" />
+
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/searchbar"
+        android:layout_width="350dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/bg_white_rounded"
+        android:layoutDirection="rtl"
+        android:queryHint="Search for a city"
+        app:queryHint="Search for a city"
+        app:defaultQueryHint="hint"
+        android:iconifiedByDefault="false"
+        app:iconifiedByDefault="false"
+        android:searchIcon="@drawable/ic_search"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/ImageStatus"
+        android:layout_width="150dp"
+        android:layout_height="110dp"
+        android:layout_marginTop="132dp"
+        android:src="@drawable/ic_sun"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <RelativeLayout
+        android:id="@+id/pannel"
+        android:layout_width="320.36dp"
+        android:layout_height="304.09dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="324dp"
+        android:background="@drawable/ic_pannel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <TextView
+            android:id="@+id/DateContainer"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="21dp"
+            android:fontFamily="@font/overpass"
+            android:text="Today, 12 September"
+            android:textAlignment="center"
+            android:textAppearance="@style/date"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/TemperatureContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:fontFamily="@font/overpass"
+            android:text="26"
+            android:textAlignment="center"
+            android:textAppearance="@style/temperature"
+            android:textSize="86dp" />
+
+        <TextView
+            android:id="@+id/DegreeContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="-7dp"
+            android:layout_marginTop="46dp"
+            android:layout_marginEnd="77dp"
+            android:layout_toEndOf="@+id/TemperatureContainer"
+            android:fontFamily="@font/overpass"
+            android:text="°"
+            android:textAlignment="center"
+            android:textAppearance="@style/temperature"
+            android:textSize="60dp" />
+
+        <TextView
+            android:id="@+id/StatusContainer"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="158dp"
+            android:fontFamily="@font/overpass_extrabold"
+            android:text="Sunny"
+            android:textAlignment="center"
+            android:textAppearance="@style/date"
+            android:textFontWeight="650"
+            android:textSize="21dp" />
+
+        <TextView
+            android:id="@+id/WindContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="179.7dp"
+            android:layout_marginTop="214dp"
+            android:fontFamily="@font/overpass"
+            android:text="15 km/h"
+            android:textAlignment="center"
+            android:textAppearance="@style/info_style"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/HumContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="180dp"
+            android:layout_marginTop="253dp"
+            android:fontFamily="@font/overpass"
+            android:text="26 %"
+            android:textAlignment="center"
+            android:textAppearance="@style/info_style"
+            android:textSize="16dp" />
+
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/forecastbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/ic_forecast_button"
+        app:backgroundTint="@null"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pannel" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

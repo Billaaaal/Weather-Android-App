@@ -1,0 +1,86 @@
+package com.example.weatherapp
+
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.util.Log
+import android.widget.TextView
+import com.google.gson.GsonBuilder
+import com.google.gson.JsonParser
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import retrofit2.Retrofit
+
+class MainActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+       var textview = findViewById<TextView>(R.id.textview)
+
+        fun getMethod(): String {
+
+            var urlMain = "https://api.openweathermap.org/"
+
+
+            // Create Retrofit
+            val retrofit = Retrofit.Builder()
+                .baseUrl(urlMain)
+                .build()
+
+            // Create Service
+            val service = retrofit.create(APIService::class.java)
+
+            CoroutineScope(Dispatchers.IO).launch {
+                var response = service.getEmployees()
+
+                withContext(Dispatchers.Main) {
+                    if (response.isSuccessful) {
+
+                        // Convert raw JSON to pretty JSON using GSON library
+                        val gson = GsonBuilder().setPrettyPrinting().create()
+                        val prettyJson = gson.toJson(
+                            JsonParser.parseString(
+                                response.body()
+                                    ?.string() // About this thread blocking annotation : https://github.com/square/retrofit/issues/3255
+                            )
+                        )
+
+
+
+                        Log.i("TEST", prettyJson)
+                        textview.text = prettyJson
+
+                    } else {
+
+                        Log.i("TEST", response.code().toString())
+
+
+                    }
+                }
+
+                /* Log.i("APICALL", toreturn) */
+
+
+            }
+
+            return "OK"
+
+        }
+
+        getMethod()
+
+        //Log.i("HUM", hze)
+
+
+
+
+
+
+
+    }
+
+}
+
+
